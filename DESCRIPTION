@@ -1,0 +1,16 @@
+Package: citationcheckR
+Type: Package
+Title: Citation Checker for R
+Version: 0.1.0
+Authors@R: person("Matthew", "Wankiewicz", email = "matthew.wankiewicz@mail.utoronto.ca",
+  role = c("aut", "cre"))
+Maintainer: Matthew Wankiewicz <matthew.wankiewicz@mail.utoronto.ca>
+Description: Provides functions to help cite packages in R. Functions in this package
+    will allow users to easily create citations for multiple packages at once and will
+    also allow users to check that their citations have been done properly. The functions 
+    included in this package will create BibTeX citations by default, but can also create
+    regular text citations.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
