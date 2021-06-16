@@ -5,7 +5,7 @@
 #' called 'references.bib'.
 #'
 #' @param packages A list of packages that you have used or plan to use in your document.
-#' @param format The type of citations you want to return. Currently only works with BibTeX
+#' @param format The type of citations you want to return.
 #' @param filename A file containing the citations of the packages used. Called 'references.bib' by default.
 #'
 #' @return A new file containing the citations of packages.
@@ -16,7 +16,7 @@
 #'
 #' create_citation_file(c("tidyverse", "Lahman"))
 #'
-#'
+#' create_citation_file(c("DoSStoolkit"), format = "text")
 #'
 create_citation_file <- function(packages, format = "bibtex", filename = "references.bib"){
   if("base" %in% packages){
@@ -30,6 +30,14 @@ create_citation_file <- function(packages, format = "bibtex", filename = "refere
       writeLines(cites, bib)
       close(bib)
     }
+    if(format == "text"){
+      citations <- list()
+      for(reference in packages){
+        citations <- append(citations, citation(reference))
+      }
+      cites <- citations$textVersion
+      invisible(lapply(cites, write, filename, append=TRUE, ncolumns=length(cites)))
+    }
   }
   else{
     packages <- append(packages, "base")
@@ -42,6 +50,14 @@ create_citation_file <- function(packages, format = "bibtex", filename = "refere
       cites <- as.character(toBibtex(citations))
       writeLines(cites, bib)
       close(bib)
+    }
+    if(format == "text"){
+      citations <- list()
+      for(reference in packages){
+        citations <- append(citations, citation(reference))
+      }
+      cites <- citations$textVersion
+      invisible(lapply(cites, write, filename, append = TRUE, ncolumns = length(cites)))
     }
   }
 }

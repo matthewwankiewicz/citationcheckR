@@ -9,7 +9,7 @@ create_citation_file(packages, format = "bibtex", filename = "references.bib")
 \arguments{
 \item{packages}{A list of packages that you have used or plan to use in your document.}
 
-\item{format}{The type of citations you want to return. Currently only works with BibTeX}
+\item{format}{The type of citations you want to return.}
 
 \item{filename}{A file containing the citations of the packages used. Called 'references.bib' by default.}
 }
@@ -27,6 +27,6 @@ create_citation_file(packages = list("tidyverse", "DoSStoolkit"),
 
 create_citation_file(c("tidyverse", "Lahman"))
 
-
+create_citation_file(c("DoSStoolkit"), format = "text")
 
 }
