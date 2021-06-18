@@ -19,7 +19,7 @@
 #' create_citation_file(c("DoSStoolkit"), format = "text")
 #'
 create_citation_file <- function(packages, format = "bibtex", filename = "references.bib"){
-  if("base" %in% packages){
+  suppressWarnings(if("base" %in% packages){
     if(format == "bibtex"){
       bib <- file(filename)
       citations <- list()
@@ -59,5 +59,5 @@ create_citation_file <- function(packages, format = "bibtex", filename = "refere
       cites <- citations$textVersion
       invisible(lapply(cites, write, filename, append = TRUE, ncolumns = length(cites)))
     }
-  }
+  })
 }

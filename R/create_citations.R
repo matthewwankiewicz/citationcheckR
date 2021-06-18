@@ -20,9 +20,8 @@
 #' create_citations(list("tidyverse"))
 #'
 create_citations <- function(packages, format = "bibtex"){
-  if("base" %in% packages){
+  suppressWarnings(if("base" %in% packages){
     if(format == "bibtex"){
-      bib <- file("references.bib")
       citations <- list()
       for(reference in packages){
         citations <- append(citations, citation(reference))
@@ -53,5 +52,5 @@ create_citations <- function(packages, format = "bibtex"){
       }
       print(citations)
     }
-  }
+  })
 }
