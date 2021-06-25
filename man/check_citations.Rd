@@ -15,10 +15,12 @@ check_citations(citation, package, format = "bibtex")
 TRUE if entries are the same, FALSE if there are differences
 }
 \description{
-Check Citations
+Checks if the text citation given matches the citation given by the citation function in R.
+If the citations are different, the function will return FALSE, if they are the same it will
+return TRUE.
 }
 \examples{
-check_citations(citation, "Lahman", format = "text")
+check_citations(citation, "tidyverse", format = "text")
 
 
 }
