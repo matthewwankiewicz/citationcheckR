@@ -17,5 +17,5 @@ RoxygenNote: 7.1.1
 URL: https://github.com/matthewwankiewicz/citationcheckR
 BugReports: https://github.com/matthewwankiewicz/citationcheckR/issues
 Imports:
-    bib2df
+	bib2df
     

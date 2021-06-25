@@ -11,9 +11,9 @@
 #' check_citation_file("ref.bib", "ggplot2")
 #'
 check_citation_file <- function(file, packages){
-  bibtib <- bib2df(file)
+  bibtib <- bib2df::bib2df(file)
   create_citation_file(packages, filename = "tempfile.bib")
-  packagestib <- bib2df("tempfile.bib")
+  packagestib <- bib2df::bib2df("tempfile.bib")
   file.remove("tempfile.bib")
   results <- c()
   for(cite in 1:nrow(bibtib)){
