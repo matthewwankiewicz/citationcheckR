@@ -14,6 +14,11 @@
 #'
 #'
 check_citations <- function(citation, package, format = "bibtex"){
+  if(format == "bibtex"){
+    return(citation == toBibtex(citation(package)))
+  }
+  else{
     return(citation == citation(package)$textVersion)
+  }
 }
 
