@@ -17,7 +17,7 @@ check_citations <- function(citation, package, format = "bibtex"){
   if(format == "bibtex"){
     return(citation == toBibtex(citation(package)))
   }
-  else{
+  if(format == "text"){
     return(citation == citation(package)$textVersion)
   }
 }
