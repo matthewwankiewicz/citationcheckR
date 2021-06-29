@@ -6,7 +6,9 @@
 #'
 #' @param packages A list of packages that you have used or plan to use in your document.
 #' @param format The type of citations you want to return.
-#' @param filename A file containing the citations of the packages used. Called 'references.bib' by default.
+#' @param filename A file containing the citations of the packages used. Called 'references.bib'
+#' by default.
+#' @param include_r If set to TRUE, will create a citation for R.
 #'
 #' @return A new file containing the citations of packages.
 #' @export
@@ -14,12 +16,14 @@
 #' @examples create_citation_file(packages = list("tidyverse", "DoSStoolkit"),
 #'  format = "bibtex")
 #'
-#' create_citation_file(c("tidyverse", "Lahman"))
+#' create_citation_file(c("tidyverse", "Lahman"), include_r = TRUE)
 #'
 #' create_citation_file(c("DoSStoolkit"), format = "text")
 #'
-create_citation_file <- function(packages, format = "bibtex", filename = "references.bib"){
-  suppressWarnings(if("base" %in% packages){
+create_citation_file <- function(packages, format = "bibtex",
+                                 filename = "references.bib",
+                                 include_r = TRUE){
+  suppressWarnings(if(include_r == FALSE){
     if(format == "bibtex"){
       bib <- file(filename)
       citations <- list()
