@@ -7,6 +7,7 @@
 #'
 #' @param packages A list of packages that you have used or plan to use in your document.
 #' @param format The type of citations you want to return. Returns bibtex by default, use `format = text` to return text citations.
+#' @param include_r If set to TRUE, will create a citation for R.
 #'
 #' @return A list of citations for the packages included in a document.
 #' @export
@@ -19,8 +20,9 @@
 #'
 #' create_citations(list("tidyverse"))
 #'
-create_citations <- function(packages, format = "bibtex"){
-  suppressWarnings(if("base" %in% packages){
+create_citations <- function(packages, format = "bibtex",
+                             include_r = TRUE){
+  suppressWarnings(if(include_r == FALSE){
     if(format == "bibtex"){
       citations <- list()
       for(reference in packages){

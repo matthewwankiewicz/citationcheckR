@@ -5,6 +5,7 @@ Version: 0.1.0
 Authors@R: person("Matthew", "Wankiewicz", email = "matthew.wankiewicz@mail.utoronto.ca",
   role = c("aut", "cre"))
 Maintainer: Matthew Wankiewicz <matthew.wankiewicz@mail.utoronto.ca>
+Date: 
 Description: Provides functions to help cite packages in R. Functions in this package
     will allow users to easily create citations for multiple packages at once and will
     also allow users to check that their citations have been done properly. The functions 
@@ -18,4 +19,5 @@ URL: https://github.com/matthewwankiewicz/citationcheckR
 BugReports: https://github.com/matthewwankiewicz/citationcheckR/issues
 Imports:
 	bib2df
+	dplyr
     

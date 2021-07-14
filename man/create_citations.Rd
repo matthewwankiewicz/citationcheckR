@@ -4,12 +4,14 @@
 \alias{create_citations}
 \title{create_citations}
 \usage{
-create_citations(packages, format = "bibtex")
+create_citations(packages, format = "bibtex", include_r = TRUE)
 }
 \arguments{
 \item{packages}{A list of packages that you have used or plan to use in your document.}
 
 \item{format}{The type of citations you want to return. Returns bibtex by default, use `format = text` to return text citations.}
+
+\item{include_r}{If set to TRUE, will create a citation for R.}
 }
 \value{
 A list of citations for the packages included in a document.

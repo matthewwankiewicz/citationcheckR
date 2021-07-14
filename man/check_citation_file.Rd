@@ -15,7 +15,10 @@ check_citation_file(file, packages)
 Whether or not the listed packages are found in the given file.
 }
 \description{
-Check Citation File
+This function looks at your BibTeX file that contains citations. It takes in a file name
+and a list of packages. The function will look through the citation file and check if the
+packages listed are found in the citation file. Packages that are both listed in the function
+and found in the citation file will be printed in the console.
 }
 \examples{
 check_citation_file("references.bib", c("tidyverse", "Lahman"))
