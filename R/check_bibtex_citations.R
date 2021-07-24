@@ -1,9 +1,9 @@
 #' Check BibTeX Citations
 #'
-#' @param citation A BibTeX citation of an R package
-#' @param package An R package to be compared to the citation
+#' @param citation A BibTeX citation of an R package.
+#' @param package An R package to be compared to the citation.
 #'
-#' @return Any issues with the citation given when compared to the package's citation
+#' @return Any issues with the citation given when compared to the package's citation.
 #' @export
 #'
 #' @examples

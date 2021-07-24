@@ -7,12 +7,12 @@
 check_bibtex_citations(citation, package)
 }
 \arguments{
-\item{citation}{A BibTeX citation of an R package}
+\item{citation}{A BibTeX citation of an R package.}
 
-\item{package}{An R package to be compared to the citation}
+\item{package}{An R package to be compared to the citation.}
 }
 \value{
-Any issues with the citation given when compared to the package's citation
+Any issues with the citation given when compared to the package's citation.
 }
 \description{
 Check BibTeX Citations
