@@ -7,6 +7,12 @@
 #' @export
 #'
 #' @examples
+#'
+#' check_bibtex_file("references.bib", c("tidyverse", "Lahman"))
+#'
+#'
+#' check_bibtex_file("references.bib", "knitr")
+#'
 
 
 
@@ -28,6 +34,10 @@ find_refs <- function(file){
 
 check_bibtex_file <- function(file, citations){
   file_cites <- find_refs(file)
+  for(i in 1:length(citations)){
+    if(identical((grep("{", citations[i], fixed = T)), integer(0)) == TRUE){
+      stop("Non-bibTeX citation used. Please use BibTeX citations only.")
+    }}
   for(i in 1:length(file_cites)){
     print(paste("Checking for", citations[i], "package in", "file"))
     check_bibtex_citations(file_cites[i], citations[i])

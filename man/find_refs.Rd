@@ -17,3 +17,11 @@ Any issues with the citation given when compared to the package's citation.
 \description{
 Check Bibtex File
 }
+\examples{
+
+check_bibtex_file("references.bib", c("tidyverse", "Lahman"))
+
+
+check_bibtex_file("references.bib", "knitr")
+
+}

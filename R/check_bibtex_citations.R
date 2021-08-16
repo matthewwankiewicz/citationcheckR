@@ -15,6 +15,9 @@
 #'
 #'
 check_bibtex_citations <- function(citation, package){
+  if(identical((grep("{", citation, fixed = T)), integer(0)) == TRUE){
+    stop("Non-BibTeX citation used. Please use BibTeX citations only.")
+  }
   bib <- file("temp1.bib")
   writeLines(citation, bib)
   close(bib)
