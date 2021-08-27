@@ -5,7 +5,7 @@
 \title{Create Citation File}
 \usage{
 create_citation_file(
-  packages,
+  packages = NULL,
   format = "bibtex",
   filename = "references.bib",
   include_r = TRUE

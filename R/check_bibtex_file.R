@@ -1,7 +1,15 @@
 #' Check Bibtex File
 #'
+#' This function goes through a file containing BibTeX citations and compares the citations to
+#' a vector of citations given.
+#'
+#' NOTE: The order of the citations vector must be the same as the order
+#' of the citations in the file. For example, if the citations vector contains 2 packages and is
+#' ordered as c(PackageA, PackageB), PackageA must be the first citation to appear in the citation
+#' file.
+#'
 #' @param file File containing BibTeX citations.
-#' @param citations A vector of citations, in the order they appear in your citation file.
+#' @param citations A vector of packages, in the order they appear in your citation file.
 #'
 #' @return Any issues with the citation given when compared to the package's citation.
 #' @export

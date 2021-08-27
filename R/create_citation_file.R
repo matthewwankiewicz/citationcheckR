@@ -20,48 +20,88 @@
 #'
 #' create_citation_file(c("DoSStoolkit"), format = "text")
 #'
-create_citation_file <- function(packages, format = "bibtex",
+create_citation_file <- function(packages = NULL, format = "bibtex",
                                  filename = "references.bib",
                                  include_r = TRUE){
-  suppressWarnings(if(include_r == FALSE){
-    if(format == "bibtex"){
-      bib <- file(filename)
-      citations <- list()
-      for(reference in packages){
-        citations <- append(citations, citation(reference))
+  suppressWarnings( # need this or it gets annoying
+    if(missing(packages)){
+      packages <- c(packages, .packages())
+      if(format == "bibtex"){
+        bib <- file(filename)
+        citations <- list()
+        for(reference in packages){
+          citations <- append(citations, citation(reference))
+        }
+        if(include_r == TRUE){
+          citations <- unique(citations)
+          cites <- as.character(toBibtex(citations))
+          writeLines(cites, bib)
+          close(bib)
+        }
+        else if(include_r == FALSE){
+          citations_noR <- citations[!(citations %in% citation("base"))]
+          citations_noR <- unique(citations_noR)
+          cites <- as.character(toBibtex(citations_noR))
+          writeLines(cites, bib)
+          close(bib)
+        }
       }
-      cites <- as.character(toBibtex(citations))
-      writeLines(cites, bib)
-      close(bib)
-    }
-    if(format == "text"){
-      citations <- list()
-      for(reference in packages){
-        citations <- append(citations, citation(reference))
+      else if(format == "text"){
+        citations <- list()
+        for(reference in packages){
+          citations <- append(citations, citation(reference))
+        }
+        if(include_r == TRUE){
+          citations <- unique(citations)
+          cites <- citations$textVersion
+          invisible(lapply(cites, write, filename, append=TRUE, ncolumns=length(cites)))
+        }
+        else if(include_r == FALSE){
+          citations_noR <- citations[!(citations %in% citation("base"))]
+          citations_noR <- unique(citations_noR)
+          cites <- citations_noR$textVersion
+          invisible(lapply(cites, write, filename, append=TRUE, ncolumns=length(cites)))
+        }
       }
-      cites <- citations$textVersion
-      invisible(lapply(cites, write, filename, append=TRUE, ncolumns=length(cites)))
     }
-  }
-  else{
-    packages <- append(packages, "base")
-    if(format == "bibtex"){
-      bib <- file(filename)
-      citations <- list()
-      for(reference in packages){
-        citations <- append(citations, citation(reference))
+    else{
+      if(format == "bibtex"){
+        citations <- c()
+        bib <- file(filename)
+        for(reference in packages){
+          citations <- append(citations, citation(reference))
+        }
+        if(include_r == FALSE){
+          citations <- unique(citations)
+          cites <- as.character(toBibtex(citations))
+          writeLines(cites, bib)
+          close(bib)
+        }
+        else if(include_r == TRUE){
+          citations <- c(citations, citation("base"))
+          citations <- unique(citations)
+          cites <- as.character(toBibtex(citations))
+          writeLines(cites, bib)
+          close(bib)
+        }
       }
-      cites <- as.character(toBibtex(citations))
-      writeLines(cites, bib)
-      close(bib)
-    }
-    if(format == "text"){
-      citations <- list()
-      for(reference in packages){
-        citations <- append(citations, citation(reference))
-      }
-      cites <- citations$textVersion
-      invisible(lapply(cites, write, filename, append = TRUE, ncolumns = length(cites)))
-    }
-  })
+      else if(format == "text"){
+        citations <- c()
+        bib <- file(filename)
+        for(reference in packages){
+          citations <- append(citations, citation(reference))
+        }
+        if(include_r == FALSE){
+          citations <- unique(citations)
+          cites <- citations$textVersion
+          invisible(lapply(cites, write, filename, append=TRUE, ncolumns=length(cites)))
+        }
+        else if(include_r == TRUE){
+          citations <- c(citations, citation("base"))
+          citations <- unique(citations)
+          cites <- citations$textVersion
+          invisible(lapply(cites, write, filename, append=TRUE, ncolumns=length(cites)))
+        }
+      }}
+  )
 }

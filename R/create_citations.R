@@ -22,75 +22,61 @@
 #'
 create_citations <- function(packages = NULL, format = "bibtex",
                              include_r = TRUE){
-  suppressWarnings(
+  suppressWarnings( # need this or it gets annoying
     if(missing(packages)){
       packages <- c(packages, .packages())
-      if(include_r == FALSE){
-        if(format == "bibtex"){
-          citations <- list()
-          for(reference in packages){
-            citations <- append(citations, citation(reference))
-          }
-          print(toBibtex(citations))
+      if(format == "bibtex"){
+        citations <- list()
+        for(reference in packages){
+          citations <- append(citations, citation(reference))
         }
-        if(format == "text"){
-          citations <- list()
-          for(reference in packages){
-            citations <- append(citations, citation(reference))
-          }
-          print(citations)
+        if(include_r == TRUE){
+          print(toBibtex(unique(citations)))
+        }
+        else if(include_r == FALSE){
+          citations_noR <- citations[!(citations %in% citation("base"))]
+          print(toBibtex(unique(citations_noR)))
         }
       }
-      else{
-        packages <- append(packages, "base")
-        if(format == "bibtex"){
-          citations <- list()
-          for(reference in packages){
-            citations <- append(citations, citation(reference))
-          }
-          print(toBibtex(citations))
+      else if(format == "text"){
+        citations <- list()
+        for(reference in packages){
+          citations <- append(citations, citation(reference))
         }
-        if(format == "text"){
-          citations <- list()
-          for(reference in packages){
-            citations <- append(citations, citation(reference))
-          }
-          print(citations)
+        if(include_r == TRUE){
+          print(unique(citations))
+        }
+        else if(include_r == FALSE){
+          citations_noR <- citations[!(citations %in% citation("base"))]
+          print(unique(citations_noR))
         }
       }
     }
     else{
-      if(include_r == FALSE){
-        if(format == "bibtex"){
-          citations <- list()
-          for(reference in packages){
-            citations <- append(citations, citation(reference))
-          }
-          print(toBibtex(citations))
+      if(format == "bibtex"){
+        citations <- c()
+        for(reference in packages){
+          citations <- append(citations, citation(reference))
         }
-        if(format == "text"){
-          citations <- list()
-          for(reference in packages){
-            citations <- append(citations, citation(reference))
-          }
-          print(citations)
+        if(include_r == FALSE){
+          print(toBibtex(unique(citations)))
+        }
+        else if(include_r == TRUE){
+          citations <- c(citations, citation("base"))
+          print(toBibtex(unique(citations)))
         }
       }
-      else{
-        packages <- append(packages, "base")
-        if(format == "bibtex"){
-          citations <- list()
-          for(reference in packages){
-            citations <- append(citations, citation(reference))
-          }
-          print(toBibtex(citations))
+      else if(format == "text"){
+        citations <- c()
+        for(reference in packages){
+          citations <- append(citations, citation(reference))
         }
-        if(format == "text"){
-          citations <- list()
-          for(reference in packages){
-            citations <- append(citations, citation(reference))
-          }
-          print(citations)
+        if(include_r == FALSE){
+          print(unique(citations))
+        }
+        else if(include_r == TRUE){
+          citations <- c(citations, citation("base"))
+          print(unique(citations))
         }
       }}
   )
