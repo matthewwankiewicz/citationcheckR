@@ -1,0 +1,27 @@
+---
+title: "The `create_citation_file` function"
+author: "Matthew Wankiewicz"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The `create_citation_file` function}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(citationcheckR)
+```
+
+## The function
+
+The `create_citation_file` function is similar to `create_citations`. The main difference between these functions is that instead of returning the package citations in the console, `create_citation_file` places them in a separate citation file. 
+
+
+
+
+

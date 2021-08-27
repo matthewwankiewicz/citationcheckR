@@ -1,0 +1,52 @@
+---
+title: "Intro to citationcheckR"
+author: "Matthew Wankiewicz"
+date: August 27, 2021
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Intro to citationcheckR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The first thing you will need to do to use `citationcheckR`, is install the package and then load it. As of right now, the package is only hosted on [Github](https://github.com/matthewwankiewicz/citationcheckR). The chunk below shows how to install and load in the package.
+
+```{r load-packages}
+# install.packages("devtools")
+# devtools::install_github("matthewwankiewicz/citationcheckR")
+library(citationcheckR)
+```
+
+Once you have installed the package you are now able to use the functions available. The vingnettes below have examples for how to use each of the function in the package.
+
+## Other Vignettes
+
+1. [Using `create_citations`](create_citations_vignette.Rmd)
+
+1. [Using `create_citation_file`](create_citation_file_vignette.Rmd)
+
+1. [Using `check_citation_file`](check_citation_file_vignette.Rmd)
+
+1. [Using `check_bibtex_file`](check_bibtex_file_vignette.Rmd)
+
+1. [Using `check_bibtex_citations`](check_bibtex_citations_vignette.Rmd)
+
+## Similar Packages
+
+`citationcheckR` is able to both create citations and check them, but there are some other similar packages/functions which can create citations in R:
+
+1. [`knitr::write_bib`](https://www.rdocumentation.org/packages/knitr/versions/1.33/topics/write_bib)
+  * This function, contained in `knitr`, takes a list containing packages used and creates a bibTeX file containing the citations. This function can both take lists of packages and also use installed packages to create citations. 
+  
+1. [`knitcitations`](https://github.com/cboettig/knitcitations)
+  * `knitcitations` contains various functions which help making citations in R easier. The packages has functions which can create citations by DOI and by webpage link, along with packages.
+
+
+

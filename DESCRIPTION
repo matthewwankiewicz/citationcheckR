@@ -21,4 +21,7 @@ Imports:
 	bib2df,
 	dplyr
 Suggests: 
+    rmarkdown,
+    knitr,
     testthat
+VignetteBuilder: knitr

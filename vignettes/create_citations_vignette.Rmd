@@ -1,0 +1,58 @@
+---
+title: "The `create_citations` function"
+author: "Matthew Wankiewicz"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The `create_citations` function}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(citationcheckR)
+```
+
+## About the Function
+
+`create_citations` was made to speed up the process of getting citations for your R papers, reports or anything else. Instead of having to run `citation` multiple times, you can run `create_citations` once to get all of your citations done quickly. The citations are returned in the console or under your R chunk, making it easy to copy and paste.
+
+## Using the function
+
+### Making the citations
+
+There are two ways to gather the packages used to create citations. The first way to gather the packages is to leave the `packages` argument empty. Doing this tells the function to take any package that has been loaded into your R session and create citations for it. 
+
+```{r citations-empty-arg}
+create_citations()
+```
+
+
+The other way to create citations is to fill the citations arugment with the packages you want to get citations for.
+
+```{r citations}
+create_citations(c("Lahman", "tidyverse", "DoSStoolkit"))
+```
+
+
+### Including R
+
+As you may have noticed, the citations that were returned included a citation for R. This is done by default and can be turned off using `include_r = FALSE`. 
+
+```{r include_r}
+create_citations(c("Lahman", "tidyverse", "DoSStoolkit"), include_r = FALSE)
+```
+
+## Changing Citation Formats
+
+By default, `create_citations` will return citations as bibTeX, but this can be changed by setting `format = 'text'`
+
+```{r}
+create_citations(c("Lahman", "tidyverse", "DoSStoolkit"),
+                 include_r = FALSE, format = "text")
+```
+
