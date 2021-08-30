@@ -21,6 +21,8 @@ library(citationcheckR)
 
 After you have finished filling up your citation and file and want to check if the citations are correct, `check_bibtex_file` is very useful. This function is a mix between the `check_bibtex_citations` and `check_citation_file` functions. It will go through the citation file and return any issues with the citations given.
 
+* **Note:** Package names must be placed in the same order as they appear in the citation file. 
+
 ## Using the function
 
 ### No Issues
@@ -100,7 +102,6 @@ For this example, we will use an example file which contains citations for `Lahm
 ```{r two-issues}
 check_bibtex_file("incorrect_example.bib", c("Lahman", "tidyverse", "base"))
 ```
-
 
 
 

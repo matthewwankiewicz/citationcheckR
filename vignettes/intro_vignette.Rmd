@@ -24,7 +24,7 @@ The first thing you will need to do to use `citationcheckR`, is install the pack
 library(citationcheckR)
 ```
 
-Once you have installed the package you are now able to use the functions available. The vingnettes below have examples for how to use each of the function in the package.
+Once you have installed the package you are now able to use the functions available. The vingnettes below have examples for how to use each of the functions in the package.
 
 ## Other Vignettes
 
