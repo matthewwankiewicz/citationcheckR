@@ -1,0 +1,83 @@
+---
+title: "The `check_citation_file` function"
+author: "Matthew Wankiewicz"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The `check_citation_file` function}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(citationcheckR)
+```
+
+## About the Function
+
+`check_citation_file` allows you to make sure your citation file has the correct packages in it. This function does not check for the accuracy of the citations, it just checks for the presence of the citations. This function only works for BibTeX files.
+
+
+## Using the function
+
+There are two arguments for `check_citation_file`, the citation file and packages you think are in the file. To be able to look through the BibTeX files, this function makes use of the [`bib2df`](https://cran.r-project.org/web/packages/bib2df/index.html) package.
+
+### Function in action
+
+To show how this function works, we will look at an example file which contains citations for the `tidyverse`, `Lahman` and R. 
+
+```{r example-file, eval=FALSE}
+Example file:
+
+@Manual{,
+  title = {Lahman: Sean 'Lahman' Baseball Database},
+  author = {Michael Friendly and Chris Dalzell and Martin Monkman and Dennis Murphy},
+  year = {2021},
+  note = {R package version 9.0-0},
+  url = {https://CRAN.R-project.org/package=Lahman},
+}
+
+@Article{,
+  title = {Welcome to the {tidyverse}},
+  author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
+  year = {2019},
+  journal = {Journal of Open Source Software},
+  volume = {4},
+  number = {43},
+  pages = {1686},
+  doi = {10.21105/joss.01686},
+}
+
+@Manual{,
+  title = {R: A Language and Environment for Statistical Computing},
+  author = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address = {Vienna, Austria},
+  year = {2019},
+  url = {https://www.R-project.org/},
+}
+```
+
+
+```{r checking, message=FALSE}
+# make citation file
+create_citation_file(c("Lahman", "tidyverse"), filename = "example.bib")
+
+check_citation_file("example.bib", c("Lahman", "tidyverse", "base"))
+```
+
+Since all three packages were located in the citation file they were all printed.
+
+### Missing packages case
+
+```{r missing-packages, message=F}
+check_citation_file("example.bib", c("Lahman", "DoSStoolkit"))
+```
+
+The example file contained citations for `Lahman`, `tidyverse` and `base` but did not contain a citation for `DoSStoolkit` (Amazing package by the way). Since there was only one match between the function and the file, it returns `Lahman`'s name. 
+
+

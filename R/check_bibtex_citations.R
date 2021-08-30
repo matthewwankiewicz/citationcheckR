@@ -37,21 +37,21 @@ check_bibtex_citations <- function(citation, package){
     issues <- c()
     for(col in colnames(packagestib)){
       if(col %in% colnames(citetib)){
-        if(identical(select(packagestib, all_of(col)),
-                     select(citetib, all_of(col)))){
+        if(identical(dplyr::select(packagestib, all_of(col)),
+                     dplyr::select(citetib, all_of(col)))){
         }
         else{
-          issue <- paste("Issue with column: ", col, ". The ", col, " in ", package,
-                         " is: ", select(packagestib, all_of(col)), sep = "")
+          issue <- paste("Issue with entry: ", col, ". The ", col, " in ", package,
+                         " is: ", dplyr::select(packagestib, all_of(col)), sep = "")
           issues <- c(issues, issue)
         }
       }
       else{
-        issue <- paste("Issue with column: ", col, ". This part of the citation is missing. In ",
-                       package, " the ", col, " is: ", select(packagestib, all_of(col)), sep = "")
+        issue <- paste("Issue with entry: ", col, ". This part of the citation is missing. In ",
+                       package, " the ", col, " is: ", dplyr::select(packagestib, all_of(col)), sep = "")
         issues <- c(issues, issue)
       }
     }
+    print(issues)
   }
-  print(issues)
 }

@@ -1,0 +1,78 @@
+---
+title: "The `check_bibtex_citations` file"
+author: "Matthew Wankiewicz"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{The `check_bibtex_citations` file}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(citationcheckR)
+```
+
+## About the function
+
+The `check_bibtex_citations` function allows users to check if a BibTeX citation they have matches up with  R's citation. The 
+
+## Using the function
+
+### Matching function
+
+The first case we will see is if the two citations match each other.
+
+```{r matching}
+test_citation <- create_citations("citationcheckR", include_r = F)
+
+check_bibtex_citations(test_citation, "citationcheckR")
+```
+
+Since there are no differences between the citation given and R's citation, we receive the "No citation issues found!" message.
+
+### One mismatch
+
+```{r one-mismatch}
+test_citation <- "@Manual{,
+  title = {citationcheckR: Citation Checker for R},
+  author = {Matthew Wankiewicz},
+  year = {2010},
+  note = {R package version 0.1.0},
+  url = {https://github.com/matthewwankiewicz/citationcheckR},
+}"
+
+check_bibtex_citations(test_citation, "citationcheckR")
+```
+
+We can see that when entries do not match, the function will tell us which entry does not match and what the correct entry is. 
+
+### Multiple Mismatches
+
+```{r multiple-mismatches}
+test_citation <- "@Manual{,
+  title = {citationcheckR: Citation Checker for R},
+  author = {Matthew},
+  year = {2020},
+  note = {R package version 0.1.0},
+  url = {https://github.com},
+}"
+
+check_bibtex_citations(test_citation, "citationcheckR")
+```
+
+As we can see, when multiple entries are mismatched, the function will tell us what the issues are, one by one.
+
+### Mismatched Packages
+
+```{r}
+test_citation <- create_citations("base")
+
+check_bibtex_citations(test_citation, "citationcheckR")
+```
+
+When the packages are not the same the function will treat it as entries which are not matched.

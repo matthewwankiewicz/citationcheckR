@@ -17,9 +17,56 @@ knitr::opts_chunk$set(
 library(citationcheckR)
 ```
 
-## The function
+## About the function
 
-The `create_citation_file` function is similar to `create_citations`. The main difference between these functions is that instead of returning the package citations in the console, `create_citation_file` places them in a separate citation file. 
+The `create_citation_file` function is similar to `create_citations`. The main difference between these functions is that instead of returning the package citations in the console, `create_citation_file` places them in a separate citation file. The citation file allows users to automatically call their citations by either referencing them in their paper or by using the yaml trick `nocite: '@*'`.
+
+## Using the function
+
+### Making citations
+
+Similar to `create_citations`, there are two ways to creating citations for this function. The first option is by leaving the `packages` argument blank, causing the function to cite any loaded packages or by entering in certain packages to be cited. 
+
+```{r make-citation1, eval=FALSE}
+create_citation_file()
+```
+
+Using the chunk above will create a file called "references.bib" which will contain citations for all of the packages loaded into the R session, this will include the citation for R. Including a vector with package names will create citations for those packages.
+
+### Changing the format
+
+There are two formats supported by the function, regular text citations and BibTeX citations. The `format` argument allows you to change between the two formats.
+
+### Including R
+
+The `include_r` argument allows you to include a citation for R in the citations. By default, the argument is set to TRUE.
+
+### File names
+
+By default, the citations will be saved in a file called "references.bib". This can be changed using the `filename` argument and can be changed to any name. Using the function multiple times on the same file will replace what is in the file for BibTeX citations but will only add citations for text citations.
+
+```{r filename, eval=FALSE}
+create_citation_file(filename = "example_references.bib")
+```
+
+
+## Things to note
+
+* When using the **text** format for `create_citation_file` make sure that the file that you are adding the citations to is empty. When adding text citations, the function does not avoid duplicates and risks the chance of having multiple citations for the same package. This doesn't happen for the bibTeX format as duplicates will be avoided.
+
+* When using the **bibtex** format, be sure to label the citations so they can be used in your report. To do this, add in a keyword or number after the first "{" of the citation. It will look like:
+
+```{r example citation, eval=FALSE}
+@Manual{citeexample,
+  title = {R: A Language and Environment for Statistical Computing},
+  author = {{R Core Team}},
+  organization = {R Foundation for Statistical Computing},
+  address = {Vienna, Austria},
+  year = {2019},
+  url = {https://www.R-project.org/},
+}
+```
+
 
 
 
