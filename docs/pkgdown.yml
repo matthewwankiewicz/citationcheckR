@@ -1,0 +1,12 @@
+pandoc: 2.3.1
+pkgdown: 1.6.1
+pkgdown_sha: ~
+articles:
+  check_bibtex_citations_vignette: check_bibtex_citations_vignette.html
+  check_bibtex_file_vignette: check_bibtex_file_vignette.html
+  check_citation_file_vignette: check_citation_file_vignette.html
+  create_citation_file_vignette: create_citation_file_vignette.html
+  create_citations_vignette: create_citations_vignette.html
+  intro_vignette: intro_vignette.html
+last_built: 2021-08-30T02:27Z
+
