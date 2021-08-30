@@ -15,7 +15,8 @@ check_bibtex_citations(citation, package)
 Any issues with the citation given when compared to the package's citation.
 }
 \description{
-Check BibTeX Citations
+Compares citations to R's version of the citation. If any issues are found, R will return
+which entry the issue was found  in and what the correct entry is.
 }
 \examples{
 

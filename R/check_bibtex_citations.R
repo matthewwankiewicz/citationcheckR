@@ -1,5 +1,8 @@
 #' Check BibTeX Citations
 #'
+#' Compares citations to R's version of the citation. If any issues are found, R will return
+#' which entry the issue was found  in and what the correct entry is.
+#'
 #' @param citation A BibTeX citation of an R package.
 #' @param package An R package to be compared to the citation.
 #'
