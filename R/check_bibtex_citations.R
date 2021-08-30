@@ -32,6 +32,9 @@ check_bibtex_citations <- function(citation, package){
   packagestib <- packagestib[ , colSums(is.na(packagestib)) < nrow(packagestib)]
   file.remove("temp2.bib")
   file.remove("temp1.bib")
+  if("BIBTEXKEY" %in% colnames(citetib) == TRUE){
+    citetib <- dplyr::select(citetib, -BIBTEXKEY)
+  }
   if(identical(citetib, packagestib) == TRUE){
     print("No citation issues found!")
   }

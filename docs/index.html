@@ -114,13 +114,17 @@
 <div id="after-using-the-functions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#after-using-the-functions" class="anchor"></a>After using the Functions</h2>
-<p>Once you have created your citations and have them stored in another file, you will need to make changes to the YAML in your R Markdown file by adding two lines of text. The first line should say “bibliography: references.bib” or the name for your citation file, this will tell R where your citations are located.</p>
-<p>The other line you can include is “nocite: ‘@*’”. This will automatically add the citations found in your citation file to your R Markdown document. If you plan to cite each package in the body of your paper you don’t need to include this line.</p>
+<p>Once you have created your citations and have them stored in another file, you will need to make changes to the YAML in your R Markdown file by adding two lines of text. The first line should say <code>bibliography: references.bib</code> or the name for your citation file, this will tell R where your citations are located.</p>
+<p>The other line you can include is <code>nocite: '@*'</code>. This will automatically add the citations found in your citation file to your R Markdown document. If you plan to cite each package in the body of your paper you don’t need to include this line.</p>
 <p>Example of the YAML header to include citations:</p>
-<p>title:</p>
-<p>author:</p>
-<p>bibliography: references.bib</p>
-<p>nocite: ‘@*’</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">title</span><span class="op">:</span>
+
+<span class="va">author</span><span class="op">:</span>
+
+<span class="va">bibliography</span><span class="op">:</span> <span class="va">references.bib</span>
+
+<span class="va">nocite</span><span class="op">:</span> <span class="st">'@*'</span></code></pre></div>
 </div>
 </div>
   </div>
