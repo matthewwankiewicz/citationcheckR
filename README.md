@@ -7,9 +7,11 @@
 
 <!-- badges: end -->
 
-The goal of citationcheckR is to make citing multiple package a little
+The goal of `citationcheckR` is to make citing multiple package a little
 bit easier. Instead of having to copy and paste multiple citations, you
-can simply use citationcheckR to create multiple citations at once.
+can use it to create multiple citations at once. The package also
+includes functions which check citations to see if they are correct or
+not.
 
 ## Installation
 
@@ -44,3 +46,8 @@ bibliography: references.bib
 
 nocite: '@*'
 ```
+
+## Issues
+
+If you find any issues while using the package, please report it as an
+issue on the GitHub page and I’ll get back to you as soon as possible.
