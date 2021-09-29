@@ -36,7 +36,7 @@ check_bibtex_citations <- function(citation, package){
     citetib <- dplyr::select(citetib, -BIBTEXKEY)
   }
   if(identical(citetib, packagestib) == TRUE){
-    print("No citation issues found!")
+    cat("No citation issues found!")
   }
   else{
     # cycle through package dataframe

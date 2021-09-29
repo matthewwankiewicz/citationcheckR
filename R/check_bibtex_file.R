@@ -26,7 +26,7 @@
 check_bibtex_file <- function(file, citations){
   file_cites <- citationcheckR::find_refs(file)
   for(i in 1:length(file_cites)){
-    print(paste("Checking for", citations[i], "package in", "file"))
+    cat(paste("Checking for", citations[i], "package in", "file...\n"))
     check_bibtex_citations(file_cites[i], citations[i])
   }
 }

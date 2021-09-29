@@ -29,7 +29,7 @@ check_citation_file <- function(file, packages){
       funcpack <- bibtib[row1, colSums(is.na(bibtib)) < nrow(bibtib)]
       funcpack <- funcpack[1, colSums(is.na(funcpack)) < nrow(funcpack)]
       if(identical(funcpack, filepack) == TRUE){
-        print(paste0(bibtib[row1, 23], " found in ", file))
+        cat(paste0(bibtib[row1, 23], " found in: ", file))
       }
     }
   }
