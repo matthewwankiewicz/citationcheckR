@@ -1,10 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# citationcheckR
+# citationcheckR <img src="man/figures/hexsticker.png" align = "right" />
 
 <!-- badges: start -->
-
 <!-- badges: end -->
 
 The goal of `citationcheckR` is to make citing multiple package a little
@@ -26,9 +25,9 @@ devtools::install_github("matthewwankiewicz/citationcheckR")
 
 Once you have created your citations and have them stored in another
 file, you will need to make changes to the YAML in your R Markdown file
-by adding two lines of text. The first line should say `bibliography:
-references.bib` or the name for your citation file, this will tell R
-where your citations are located.
+by adding two lines of text. The first line should say
+`bibliography: references.bib` or the name for your citation file, this
+will tell R where your citations are located.
 
 The other line you can include is `nocite: '@*'`. This will
 automatically add the citations found in your citation file to your R

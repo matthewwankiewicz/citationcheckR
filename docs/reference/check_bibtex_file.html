@@ -172,38 +172,28 @@ ordered as c(PackageA, PackageB), PackageA must be the first citation to appear 
 file.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><span class='r-in'></span>
-<span class='r-in'><span class='fu'>check_bibtex_file</span><span class='op'>(</span><span class='st'>"references.bib"</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"tidyverse"</span>, <span class='st'>"Lahman"</span><span class='op'>)</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Checking for tidyverse package in file"</span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span class='warning'>Warning: </span>`as_data_frame()` was deprecated in tibble 2.0.0.</span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> Please use `as_tibble()` instead.</span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> The signature and semantics have changed, see `?as_tibble`.</span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span style='color: #555555;'>This warning is displayed once every 8 hours.</span></span>
-<span class='r-wrn co'><span class='r-pr'>#&gt;</span> <span style='color: #555555;'>Call `lifecycle::last_warnings()` to see where this warning was generated.</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "No citation issues found!"</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Checking for Lahman package in file"</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "No citation issues found!"</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Checking for NA package in file"</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in citation(reference)</span> there is no package called ‘NA’</span>
-<span class='r-in'></span>
-<span class='r-in'></span>
-<span class='r-in'><span class='fu'>check_bibtex_file</span><span class='op'>(</span><span class='st'>"references.bib"</span>, <span class='st'>"knitr"</span><span class='op'>)</span></span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Checking for knitr package in file"</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [1] "Issue with entry: CATEGORY. The CATEGORY in knitr is: c(\"MANUAL\", \"BOOK\", \"INCOLLECTION\")"                                                                                                                                      </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [2] "Issue with entry: ADDRESS. This part of the citation is missing. In knitr the ADDRESS is: c(NA, \"Boca Raton, Florida\", NA)"                                                                                                         </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [3] "Issue with entry: AUTHOR. The AUTHOR in knitr is: list(\"Yihui Xie\", \"Yihui Xie\", \"Yihui Xie\")"                                                                                                                                  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [4] "Issue with entry: BOOKTITLE. This part of the citation is missing. In knitr the BOOKTITLE is: c(NA, NA, \"Implementing Reproducible Computational Research\")"                                                                        </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [5] "Issue with entry: EDITION. This part of the citation is missing. In knitr the EDITION is: c(NA, \"2nd\", NA)"                                                                                                                         </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [6] "Issue with entry: EDITOR. This part of the citation is missing. In knitr the EDITOR is: list(NA, NA, c(\"Victoria Stodden\", \"Friedrich Leisch\", \"Roger D. Peng\"))"                                                               </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [7] "Issue with entry: NOTE. This part of the citation is missing. In knitr the NOTE is: c(\"R package version 1.33\", \"ISBN 978-1498716963\", \"ISBN 978-1466561595\")"                                                                  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [8] "Issue with entry: PUBLISHER. This part of the citation is missing. In knitr the PUBLISHER is: c(NA, \"Chapman and Hall/CRC\", \"Chapman and Hall/CRC\")"                                                                              </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span>  [9] "Issue with entry: TITLE. The TITLE in knitr is: c(\"knitr: A General-Purpose Package for Dynamic Report Generation in R\", \"Dynamic Documents with {R} and knitr\", \"knitr: A Comprehensive Tool for Reproducible Research in {R\")"</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [10] "Issue with entry: YEAR. The YEAR in knitr is: c(2021, 2015, 2014)"                                                                                                                                                                    </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [11] "Issue with entry: URL. This part of the citation is missing. In knitr the URL is: c(\"https://yihui.org/knitr/\", \"https://yihui.org/knitr/\", \"http://www.crcpress.com/product/isbn/9781466561595\")"                              </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> [1] "Checking for NA package in file"</span>
-<span class='r-err co'><span class='r-pr'>#&gt;</span> <span class='error'>Error in citation(reference)</span> there is no package called ‘NA’</span>
-<span class='r-in'></span>
-</pre>
+    <pre class="examples"><div class='input'>
+<span class='fu'>check_bibtex_file</span><span class='op'>(</span><span class='st'>"references.bib"</span>, <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"tidyverse"</span>, <span class='st'>"Lahman"</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Checking for tidyverse package in file...</div><div class='output co'>#&gt; <span class='warning'>Warning: `as_data_frame()` was deprecated in tibble 2.0.0.</span>
+#&gt; <span class='warning'>Please use `as_tibble()` instead.</span>
+#&gt; <span class='warning'>The signature and semantics have changed, see `?as_tibble`.</span></div><div class='output co'>#&gt; No citation issues found!Checking for Lahman package in file...
+#&gt; No citation issues found!Checking for NA package in file...</div><div class='output co'>#&gt; <span class='error'>Error in citation(reference): there is no package called ‘NA’</span></div><div class='input'>
+
+<span class='fu'>check_bibtex_file</span><span class='op'>(</span><span class='st'>"references.bib"</span>, <span class='st'>"knitr"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; Checking for knitr package in file...
+#&gt;  [1] "Issue with entry: CATEGORY. The CATEGORY in knitr is: c(\"MANUAL\", \"BOOK\", \"INCOLLECTION\")"                                                                                                                                      
+#&gt;  [2] "Issue with entry: ADDRESS. This part of the citation is missing. In knitr the ADDRESS is: c(NA, \"Boca Raton, Florida\", NA)"                                                                                                         
+#&gt;  [3] "Issue with entry: AUTHOR. The AUTHOR in knitr is: list(\"Yihui Xie\", \"Yihui Xie\", \"Yihui Xie\")"                                                                                                                                  
+#&gt;  [4] "Issue with entry: BOOKTITLE. This part of the citation is missing. In knitr the BOOKTITLE is: c(NA, NA, \"Implementing Reproducible Computational Research\")"                                                                        
+#&gt;  [5] "Issue with entry: EDITION. This part of the citation is missing. In knitr the EDITION is: c(NA, \"2nd\", NA)"                                                                                                                         
+#&gt;  [6] "Issue with entry: EDITOR. This part of the citation is missing. In knitr the EDITOR is: list(NA, NA, c(\"Victoria Stodden\", \"Friedrich Leisch\", \"Roger D. Peng\"))"                                                               
+#&gt;  [7] "Issue with entry: NOTE. This part of the citation is missing. In knitr the NOTE is: c(\"R package version 1.36\", \"ISBN 978-1498716963\", \"ISBN 978-1466561595\")"                                                                  
+#&gt;  [8] "Issue with entry: PUBLISHER. This part of the citation is missing. In knitr the PUBLISHER is: c(NA, \"Chapman and Hall/CRC\", \"Chapman and Hall/CRC\")"                                                                              
+#&gt;  [9] "Issue with entry: TITLE. The TITLE in knitr is: c(\"knitr: A General-Purpose Package for Dynamic Report Generation in R\", \"Dynamic Documents with {R} and knitr\", \"knitr: A Comprehensive Tool for Reproducible Research in {R\")"
+#&gt; [10] "Issue with entry: YEAR. The YEAR in knitr is: c(2021, 2015, 2014)"                                                                                                                                                                    
+#&gt; [11] "Issue with entry: URL. This part of the citation is missing. In knitr the URL is: c(\"https://yihui.org/knitr/\", \"https://yihui.org/knitr/\", \"http://www.crcpress.com/product/isbn/9781466561595\")"                              
+#&gt; Checking for NA package in file...</div><div class='output co'>#&gt; <span class='error'>Error in citation(reference): there is no package called ‘NA’</span></div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

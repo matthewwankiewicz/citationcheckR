@@ -91,13 +91,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="check_bibtex_citations_vignette_files/header-attrs-2.11.2/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>The <code>check_bibtex_citations</code> file</h1>
                         <h4 class="author">Matthew Wankiewicz</h4>
             
-            <h4 class="date">2021-09-08</h4>
+            <h4 class="date">2021-09-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/matthewwankiewicz/citationcheckR/blob/master/vignettes/check_bibtex_citations_vignette.Rmd"><code>vignettes/check_bibtex_citations_vignette.Rmd</code></a></small>
       <div class="hidden name"><code>check_bibtex_citations_vignette.Rmd</code></div>
@@ -132,7 +132,9 @@
 <span class="co">#&gt; Warning: `as_data_frame()` was deprecated in tibble 2.0.0.</span>
 <span class="co">#&gt; Please use `as_tibble()` instead.</span>
 <span class="co">#&gt; The signature and semantics have changed, see `?as_tibble`.</span>
-<span class="co">#&gt; [1] "No citation issues found!"</span></code></pre></div>
+<span class="co">#&gt; This warning is displayed once every 8 hours.</span>
+<span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</span>
+<span class="co">#&gt; No citation issues found!</span></code></pre></div>
 <p>Since there are no differences between the citation given and R’s citation, we receive the “No citation issues found!” message.</p>
 </div>
 <div id="one-mismatch" class="section level3">
@@ -179,7 +181,7 @@
 <span class="co">#&gt;   author = {{R Core Team}},</span>
 <span class="co">#&gt;   organization = {R Foundation for Statistical Computing},</span>
 <span class="co">#&gt;   address = {Vienna, Austria},</span>
-<span class="co">#&gt;   year = {2019},</span>
+<span class="co">#&gt;   year = {2021},</span>
 <span class="co">#&gt;   url = {https://www.R-project.org/},</span>
 <span class="co">#&gt; }</span>
 
@@ -187,8 +189,7 @@
 <span class="co">#&gt; [1] "Issue with entry: AUTHOR. The AUTHOR in citationcheckR is: list(\"Matthew Wankiewicz\")"                             </span>
 <span class="co">#&gt; [2] "Issue with entry: NOTE. This part of the citation is missing. In citationcheckR the NOTE is: R package version 0.1.0"</span>
 <span class="co">#&gt; [3] "Issue with entry: TITLE. The TITLE in citationcheckR is: citationcheckR: Citation Checker for R"                     </span>
-<span class="co">#&gt; [4] "Issue with entry: YEAR. The YEAR in citationcheckR is: 2021"                                                         </span>
-<span class="co">#&gt; [5] "Issue with entry: URL. The URL in citationcheckR is: https://github.com/matthewwankiewicz/citationcheckR"</span></code></pre></div>
+<span class="co">#&gt; [4] "Issue with entry: URL. The URL in citationcheckR is: https://github.com/matthewwankiewicz/citationcheckR"</span></code></pre></div>
 <p>When the packages are not the same the function will treat it as entries which are not matched.</p>
 </div>
 </div>

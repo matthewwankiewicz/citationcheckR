@@ -91,13 +91,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="create_citation_file_vignette_files/header-attrs-2.11.2/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>The <code>create_citation_file</code> function</h1>
                         <h4 class="author">Matthew Wankiewicz</h4>
             
-            <h4 class="date">2021-09-08</h4>
+            <h4 class="date">2021-09-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/matthewwankiewicz/citationcheckR/blob/master/vignettes/create_citation_file_vignette.Rmd"><code>vignettes/create_citation_file_vignette.Rmd</code></a></small>
       <div class="hidden name"><code>create_citation_file_vignette.Rmd</code></div>
@@ -147,14 +147,14 @@
 <li><p>When using the <strong>text</strong> format for <code>create_citation_file</code> make sure that the file that you are adding the citations to is empty. When adding text citations, the function does not avoid duplicates and risks the chance of having multiple citations for the same package. This doesn’t happen for the bibTeX format as duplicates will be avoided.</p></li>
 <li><p>When using the <strong>bibtex</strong> format, be sure to label the citations so they can be used in your report. To do this, add in a keyword or number after the first “{” of the citation. It will look like:</p></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="op">@</span>Manual{citeexample,</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">  title =<span class="st"> </span>{R<span class="op">:</span><span class="st"> </span>A Language and Environment <span class="cf">for</span> Statistical Computing},</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">  author =<span class="st"> </span>{{R Core Team}},</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">  organization =<span class="st"> </span>{R Foundation <span class="cf">for</span> Statistical Computing},</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">  address =<span class="st"> </span>{Vienna, Austria},</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">  year =<span class="st"> </span>{<span class="dv">2019</span>},</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">  url =<span class="st"> </span>{https<span class="op">:</span><span class="er">//</span>www.R<span class="op">-</span>project.org<span class="op">/</span>},</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">}</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>Manual{citeexample,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {R<span class="sc">:</span> A Language and Environment <span class="cf">for</span> Statistical Computing},</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {{R Core Team}},</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  organization <span class="ot">=</span> {R Foundation <span class="cf">for</span> Statistical Computing},</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  address <span class="ot">=</span> {Vienna, Austria},</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2019</span>},</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>www.R<span class="sc">-</span>project.org<span class="sc">/</span>},</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
   </div>
 

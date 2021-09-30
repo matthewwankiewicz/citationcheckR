@@ -1,6 +1,7 @@
 #' Find Refs
 #'
-#' This is a helper function for the `check_bibtex_file` function.
+#' This is a helper function for the `check_bibtex_file` function. It looks for
+#' references in the bibtex file. This function should not be used on its own.
 #'
 #' @param file
 #'

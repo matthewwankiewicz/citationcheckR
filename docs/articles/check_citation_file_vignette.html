@@ -91,13 +91,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="check_citation_file_vignette_files/header-attrs-2.11.2/header-attrs.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>The <code>check_citation_file</code> function</h1>
                         <h4 class="author">Matthew Wankiewicz</h4>
             
-            <h4 class="date">2021-09-08</h4>
+            <h4 class="date">2021-09-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/matthewwankiewicz/citationcheckR/blob/master/vignettes/check_citation_file_vignette.Rmd"><code>vignettes/check_citation_file_vignette.Rmd</code></a></small>
       <div class="hidden name"><code>check_citation_file_vignette.Rmd</code></div>
@@ -119,35 +119,35 @@
 <h3 class="hasAnchor">
 <a href="#function-in-action" class="anchor"></a>Function in action</h3>
 <p>To show how this function works, we will look at an example file which contains citations for the <code>tidyverse</code>, <code>Lahman</code> and R.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">Example file<span class="op">:</span></a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="er">@</span>Manual{,</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">  title =<span class="st"> </span>{Lahman<span class="op">:</span><span class="st"> </span>Sean <span class="st">'Lahman'</span> Baseball Database},</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5">  author =<span class="st"> </span>{Michael Friendly and Chris Dalzell and Martin Monkman and Dennis Murphy},</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6">  year =<span class="st"> </span>{<span class="dv">2021</span>},</a>
-<a class="sourceLine" id="cb1-7" data-line-number="7">  note =<span class="st"> </span>{R package version <span class="fl">9.0</span><span class="dv">-0</span>},</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">  url =<span class="st"> </span>{https<span class="op">:</span><span class="er">//</span>CRAN.R<span class="op">-</span>project.org<span class="op">/</span>package=Lahman},</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9">}</a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="op">@</span>Article{,</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12">  title =<span class="st"> </span>{Welcome to the {tidyverse}},</a>
-<a class="sourceLine" id="cb1-13" data-line-number="13">  author =<span class="st"> </span>{Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D<span class="st">'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14"><span class="st">  year = {2019},</span></a>
-<a class="sourceLine" id="cb1-15" data-line-number="15"><span class="st">  journal = {Journal of Open Source Software},</span></a>
-<a class="sourceLine" id="cb1-16" data-line-number="16"><span class="st">  volume = {4},</span></a>
-<a class="sourceLine" id="cb1-17" data-line-number="17"><span class="st">  number = {43},</span></a>
-<a class="sourceLine" id="cb1-18" data-line-number="18"><span class="st">  pages = {1686},</span></a>
-<a class="sourceLine" id="cb1-19" data-line-number="19"><span class="st">  doi = {10.21105/joss.01686},</span></a>
-<a class="sourceLine" id="cb1-20" data-line-number="20"><span class="st">}</span></a>
-<a class="sourceLine" id="cb1-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb1-22" data-line-number="22"><span class="st">@Manual{,</span></a>
-<a class="sourceLine" id="cb1-23" data-line-number="23"><span class="st">  title = {R: A Language and Environment for Statistical Computing},</span></a>
-<a class="sourceLine" id="cb1-24" data-line-number="24"><span class="st">  author = {{R Core Team}},</span></a>
-<a class="sourceLine" id="cb1-25" data-line-number="25"><span class="st">  organization = {R Foundation for Statistical Computing},</span></a>
-<a class="sourceLine" id="cb1-26" data-line-number="26"><span class="st">  address = {Vienna, Austria},</span></a>
-<a class="sourceLine" id="cb1-27" data-line-number="27"><span class="st">  year = {2019},</span></a>
-<a class="sourceLine" id="cb1-28" data-line-number="28"><span class="st">  url = {https://www.R-project.org/},</span></a>
-<a class="sourceLine" id="cb1-29" data-line-number="29"><span class="st">}</span></a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>Example file<span class="sc">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="er">@</span>Manual{,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {Lahman<span class="sc">:</span> Sean <span class="st">'Lahman'</span> Baseball Database},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Michael Friendly and Chris Dalzell and Martin Monkman and Dennis Murphy},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  year <span class="ot">=</span> {<span class="dv">2021</span>},</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  note <span class="ot">=</span> {R package version <span class="fl">9.0</span><span class="dv">-0</span>},</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  url <span class="ot">=</span> {https<span class="sc">:</span><span class="er">//</span>CRAN.R<span class="sc">-</span>project.org<span class="sc">/</span>package<span class="ot">=</span>Lahman},</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="sc">@</span>Article{,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  title <span class="ot">=</span> {Welcome to the {tidyverse}},</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  author <span class="ot">=</span> {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D<span class="st">'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="st">  year = {2019},</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="st">  journal = {Journal of Open Source Software},</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="st">  volume = {4},</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="st">  number = {43},</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="st">  pages = {1686},</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="st">  doi = {10.21105/joss.01686},</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="st">@Manual{,</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="st">  title = {R: A Language and Environment for Statistical Computing},</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="st">  author = {{R Core Team}},</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="st">  organization = {R Foundation for Statistical Computing},</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="st">  address = {Vienna, Austria},</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="st">  year = {2019},</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="st">  url = {https://www.R-project.org/},</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span></code></pre></div>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># make citation file</span>
 <span class="fu"><a href="../reference/create_citation_file.html">create_citation_file</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Lahman"</span>, <span class="st">"tidyverse"</span><span class="op">)</span>, filename <span class="op">=</span> <span class="st">"example.bib"</span><span class="op">)</span>
@@ -156,9 +156,9 @@
 <span class="co">#&gt; Warning: `as_data_frame()` was deprecated in tibble 2.0.0.</span>
 <span class="co">#&gt; Please use `as_tibble()` instead.</span>
 <span class="co">#&gt; The signature and semantics have changed, see `?as_tibble`.</span>
-<span class="co">#&gt; [1] "Lahman: Sean 'Lahman' Baseball Database found in example.bib"</span>
-<span class="co">#&gt; [1] "Welcome to the {tidyverse found in example.bib"</span>
-<span class="co">#&gt; [1] "R: A Language and Environment for Statistical Computing found in example.bib"</span></code></pre></div>
+<span class="co">#&gt; This warning is displayed once every 8 hours.</span>
+<span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</span>
+<span class="co">#&gt; Lahman: Sean 'Lahman' Baseball Database found in: example.bibWelcome to the {tidyverse found in: example.bibR: A Language and Environment for Statistical Computing found in: example.bib</span></code></pre></div>
 <p>Since all three packages were located in the citation file they were all printed.</p>
 </div>
 <div id="missing-packages-case" class="section level3">
@@ -166,7 +166,7 @@
 <a href="#missing-packages-case" class="anchor"></a>Missing packages case</h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/check_citation_file.html">check_citation_file</a></span><span class="op">(</span><span class="st">"example.bib"</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Lahman"</span>, <span class="st">"DoSStoolkit"</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Lahman: Sean 'Lahman' Baseball Database found in example.bib"</span></code></pre></div>
+<span class="co">#&gt; Lahman: Sean 'Lahman' Baseball Database found in: example.bib</span></code></pre></div>
 <p>The example file contained citations for <code>Lahman</code>, <code>tidyverse</code> and <code>base</code> but did not contain a citation for <code>DoSStoolkit</code> (Amazing package by the way). Since there was only one match between the function and the file, it returns <code>Lahman</code>’s name.</p>
 </div>
 </div>
