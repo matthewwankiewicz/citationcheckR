@@ -1,5 +1,5 @@
 ---
-title: "The `check_bibtex_citations` file"
+title: "The `check_bibtex_citations` function"
 author: "Matthew Wankiewicz"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
